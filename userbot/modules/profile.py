@@ -7,26 +7,17 @@
 
 import os
 import logging
-
-from telethon.errors import ImageProcessFailedError, PhotoCropSizeSmallError
-
-from telethon.errors.rpcerrorlist import (PhotoExtInvalidError,
-                                          UsernameOccupiedError)
-
-from telethon.tl.functions.account import (UpdateProfileRequest,
-                                           UpdateUsernameRequest)
-
+from telethon.tl import functions
+from telethon import events
+from telethon.tl.functions.account import UpdateUsernameRequest, UpdateProfileRequest
 from telethon.tl.functions.channels import GetAdminedPublicChannelsRequest
-
-from telethon.tl.functions.photos import (DeletePhotosRequest,
-                                          GetUserPhotosRequest,
-                                          UploadProfilePhotoRequest)
-
+from telethon.errors import ImageProcessFailedError, PhotoCropSizeSmallError
 from telethon.tl.types import InputPhoto, MessageMediaPhoto, User, Chat, Channel
+from telethon.tl.functions.photos import DeletePhotosRequest,GetUserPhotosRequest
+from telethon.errors.rpcerrorlist import PhotoExtInvalidError, UsernameOccupiedError
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
-
 from userbot import bot, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot.events import register
 
@@ -90,7 +81,7 @@ async def _(event):
     else:
         if photo:
             await event.edit("now, Uploading to Telegram ...")
-            if photo.endswith((".mp4" ,".MP4")):
+            if photo.endswith((".mp4" ,".MP4",".gif",".GIF")):
                 #https://t.me/tgbetachat/324694
                 size = os.stat(photo).st_size
                 if size > 2097152:

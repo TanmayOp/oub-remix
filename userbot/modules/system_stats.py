@@ -16,7 +16,6 @@ import sys
 import time
 from datetime import datetime
 import psutil
-import asyncio
 from userbot import CMD_HELP, ALIVE_NAME, BOT_VER, ALIVE_LOGO, bot, StartTime
 from userbot.events import register
 
@@ -227,9 +226,9 @@ async def amireallyalive(alive):
              f"`Python version🐍`: {python_version()} \n"
              f"`Bot Version🤘: Remix {BOT_VER}` \n"
              f"==================================== \n"
-             f"User 👨‍🚀: {DEFAULTUSER} \n"
-             f"Maintainer 🏄‍♂️: @heyworld \n"
-             f"Bot Uptime 🕒: {uptime} \n"
+             f"`User 👨‍🚀`: {DEFAULTUSER} \n"
+             f"`Maintainer 🏄‍♂️`: @heyworld \n"
+             f"`Bot Uptime ⏱️`: {uptime} \n"
              f"====================================\n")
     if ALIVE_LOGO:
         try:
